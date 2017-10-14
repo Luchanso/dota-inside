@@ -1,12 +1,28 @@
 /* eslint-disable */
+// @flow
 
-import React from 'react';
+import * as React from 'react';
 import { withStyles } from 'material-ui/styles';
 import Card, { CardActions, CardContent, CardMedia } from 'material-ui/Card';
 import Typography from 'material-ui/Typography';
 import Divider from 'material-ui/Divider';
 
+import Hero from '../../types/hero';
 import { API } from '../../constants';
+
+type Props = {
+  classes: {
+    card: string,
+    media: string,
+    label: string,
+    lastLabel: string,
+  },
+  hero: Hero,
+};
+
+type TypeLabel = {
+  children: React.Node, isLast: boolean,
+};
 
 const styles = {
   card: {
@@ -24,11 +40,11 @@ const styles = {
   },
 };
 
-class HeroCard extends React.Component {
+class HeroCard extends React.Component<Props> {
   renderLabel() {
     const { classes } = this.props;
 
-    return ({ children, isLast }) => (
+    return ({ children, isLast }: TypeLabel) => (
       <Typography component="p" className={(!isLast && classes.label) || classes.lastLabel}>
         {children}
       </Typography>
