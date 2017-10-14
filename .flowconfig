@@ -7,6 +7,7 @@
 .*/node_modules/graphql
 .*/node_modules/kefir
 .*/node_modules/react-event-listener/src
+.*/node_modules/material-ui
 
 ; Comment this line if you do not use enzyme.
 .*/node_modules/material-ui/test-utils
