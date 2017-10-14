@@ -1,6 +1,6 @@
 // @flow
 
-import Hero from '../types/hero';
+import typeof Hero from '../types/hero';
 
 // https://habrahabr.ru/company/darudar/blog/143188/
 const wilsonScore = (up: number, down: number) => {
