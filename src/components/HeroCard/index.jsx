@@ -7,7 +7,7 @@ import Card, { CardActions, CardContent, CardMedia } from 'material-ui/Card';
 import Typography from 'material-ui/Typography';
 import Divider from 'material-ui/Divider';
 
-import typeof Hero from '../../types/hero';
+import { typeof Hero } from '../../types';
 import { API } from '../../constants';
 
 type Props = {
