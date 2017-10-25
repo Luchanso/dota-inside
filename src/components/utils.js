@@ -15,7 +15,7 @@ const wilsonScore = (up: number, down: number) => {
 const byWilsonScore = (a: Hero, b: Hero) => b.wilsonScore - a.wilsonScore;
 
 export const getTop = (heroes: Array<Hero>, count: number) => {
-  const newHeroes = heroes.map(hero => ({
+  const newHeroes = heroes.filter(hero => hero.pro_win && hero.pro_pick).map(hero => ({
     ...hero, wilsonScore: wilsonScore(hero.pro_win, hero.pro_pick),
   }));
 
