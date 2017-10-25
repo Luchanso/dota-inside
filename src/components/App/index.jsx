@@ -16,6 +16,8 @@ const Wrapper = styled.div`
   padding: 30px;
 `;
 
+const TIME_UPDATE = 1e3 * 60 * 5; // 5 min
+
 class App extends React.Component {
   constructor(props, context) {
     super(props, context);
@@ -27,6 +29,19 @@ class App extends React.Component {
   }
 
   componentDidMount() {
+    this.handleUpdate();
+    this.timer = setInterval(this.handleUpdate, TIME_UPDATE);
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.timer);
+  }
+
+  handleUpdate = () => {
+    this.setState({
+      isLoading: true,
+    });
+
     fetchHeroes().then((heroes) => {
       this.setState({
         isLoading: false,
@@ -67,7 +82,7 @@ class App extends React.Component {
                 rel="noopener noreferrer"
               >
                 wilson score
-              </a>
+              </a> and auto update every 5 minutes
             </Typography>
           </Grid>
           {this.renderHeroList()}
