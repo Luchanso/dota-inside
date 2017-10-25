@@ -68,7 +68,7 @@ class HeroCard extends React.Component<Props> {
         <CardMedia
           className={classes.media}
           image={imgPath}
-          title="Cristal Maden"
+          title={name}
         />
         <CardContent>
           <Typography type="headline" component="h2">
