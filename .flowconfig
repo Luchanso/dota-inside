@@ -10,7 +10,7 @@
 .*/node_modules/material-ui
 
 ; Comment this line if you do not use enzyme.
-.*/node_modules/material-ui/test-utils
+.*/node_modules/@material-ui/coretest-utils
 
 ; flow 55
 ; FIXME: we should be flow checking against jss

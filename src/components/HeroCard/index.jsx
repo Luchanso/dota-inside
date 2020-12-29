@@ -2,10 +2,11 @@
 // @flow
 
 import * as React from 'react';
-import { withStyles } from 'material-ui/styles';
-import Card, { CardActions, CardContent, CardMedia } from 'material-ui/Card';
-import Typography from 'material-ui/Typography';
-import Divider from 'material-ui/Divider';
+import { withStyles } from '@material-ui/core/styles';
+import { CardActions, CardContent, CardMedia } from '@material-ui/core';
+import Card from '@material-ui/core/Card';
+import Typography from '@material-ui/core/Typography';
+import Divider from '@material-ui/core/Divider';
 
 import { type Hero } from '../../types';
 import { API } from '../../constants';

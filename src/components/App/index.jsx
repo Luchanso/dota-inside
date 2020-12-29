@@ -1,9 +1,12 @@
+/* eslint-disable */
 import React from 'react';
 import styled from 'styled-components';
-import Typography from 'material-ui/Typography';
-import { CircularProgress } from 'material-ui/Progress';
-import Grid from 'material-ui/Grid';
-
+import Typography from '@material-ui/core/Typography';
+import CircularProgress from '@material-ui/core/CircularProgress';
+import MenuItem from '@material-ui/core/MenuItem';
+import Grid from '@material-ui/core/Grid';
+import Select from '@material-ui/core/Select';
+import InputLabel from '@material-ui/core/InputLabel';
 import HeroCard from '../HeroCard';
 import { fetchHeroes } from '../../api';
 import { getTop } from '../utils';
@@ -16,6 +19,13 @@ const Wrapper = styled.div`
   padding: 30px;
 `;
 
+const SORT_TYPE = {
+  WilsonScore: 0,
+  NumberOfProPicks: 1,
+  ProWinrate: 2,
+  ProBans: 3,
+};
+
 const TIME_UPDATE = 1e3 * 60 * 5; // 5 min
 
 class App extends React.Component {
@@ -25,6 +35,7 @@ class App extends React.Component {
     this.state = {
       isLoading: true,
       heroes: [],
+      sortType: 0,
     };
   }
 
@@ -48,12 +59,32 @@ class App extends React.Component {
         heroes,
       });
     });
-  }
+  };
+
+  handleChangeSort = (event) => {
+    this.setState({
+      sortType: event.target.value,
+    });
+  };
 
   renderHeroList() {
-    const { isLoading, heroes } = this.state;
+    const { isLoading, heroes, sortType } = this.state;
 
-    const topHeroes = getTop(heroes, 50);
+    const topHeroes = getTop(heroes, 50).sort((a, b) => {
+      if (sortType === SORT_TYPE.ProBans) {
+        return b.pro_ban - a.pro_ban;
+      }
+
+      if (sortType === SORT_TYPE.ProWinrate) {
+        return (b.pro_win / b.pro_pick) * 100 - (a.pro_win / a.pro_pick) * 100;
+      }
+
+      if (sortType === SORT_TYPE.NumberOfProPicks) {
+        return b.pro_pick - a.pro_pick;
+      }
+
+      return a.wilsonScore - b.wilsonScore;
+    });
 
     if (isLoading) {
       return <CircularProgress />;
@@ -75,15 +106,19 @@ class App extends React.Component {
               Top PRO Heroes
             </Typography>
             <Typography type="display1" gutterBottom>
-              Sortered by{' '}
-              <a
-                href="https://en.wikipedia.org/wiki/Binomial_proportion_confidence_interval"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                wilson score
-              </a> and auto update every 5 minutes
+              auto update every 5 minutes
             </Typography>
+            <InputLabel id="label-sort">Sort by</InputLabel>
+            <Select
+              labelId="label-sort"
+              value={this.state.sortType}
+              onChange={this.handleChangeSort}
+            >
+              <MenuItem value={0}>Wilson score</MenuItem>
+              <MenuItem value={1}>Number of Pro Picks</MenuItem>
+              <MenuItem value={2}>Pro Win rate</MenuItem>
+              <MenuItem value={3}>Pro Bans</MenuItem>
+            </Select>
           </Grid>
           {this.renderHeroList()}
         </Grid>

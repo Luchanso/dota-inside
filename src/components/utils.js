@@ -1,3 +1,4 @@
+/* eslint-disable */
 // @flow
 
 import { type Hero } from '../types';
