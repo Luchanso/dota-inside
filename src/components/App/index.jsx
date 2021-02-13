@@ -19,6 +19,12 @@ const Wrapper = styled.div`
   padding: 30px;
 `;
 
+const VerticalSpaceGrid = styled(Grid)`
+  && {
+    margin-bottom: 12px;
+  }
+`;
+
 const SORT_TYPE = {
   WilsonScore: 0,
   NumberOfProPicks: 1,
@@ -83,7 +89,7 @@ class App extends React.Component {
         return b.pro_pick - a.pro_pick;
       }
 
-      return a.wilsonScore - b.wilsonScore;
+      return b.wilsonScore - a.wilsonScore;
     });
 
     if (isLoading) {
@@ -100,8 +106,8 @@ class App extends React.Component {
   render() {
     return (
       <Wrapper>
-        <Grid container spacing={24} justify="center">
-          <Grid item xs={12}>
+        <Grid container spacing={24} justify="center" >
+          <VerticalSpaceGrid item xs={12} >
             <Typography type="display4" gutterBottom>
               Top PRO Heroes
             </Typography>
@@ -119,7 +125,7 @@ class App extends React.Component {
               <MenuItem value={2}>Pro Win rate</MenuItem>
               <MenuItem value={3}>Pro Bans</MenuItem>
             </Select>
-          </Grid>
+          </VerticalSpaceGrid>
           {this.renderHeroList()}
         </Grid>
       </Wrapper>
