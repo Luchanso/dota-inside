@@ -1,21 +1,21 @@
 {
   "files": {
-    "main.js": "/dota-inside/static/js/main.022f0054.chunk.js",
-    "main.js.map": "/dota-inside/static/js/main.022f0054.chunk.js.map",
+    "main.js": "/dota-inside/static/js/main.9b11ef97.chunk.js",
+    "main.js.map": "/dota-inside/static/js/main.9b11ef97.chunk.js.map",
     "runtime-main.js": "/dota-inside/static/js/runtime-main.9bb8d79c.js",
     "runtime-main.js.map": "/dota-inside/static/js/runtime-main.9bb8d79c.js.map",
     "static/css/2.d6950d43.chunk.css": "/dota-inside/static/css/2.d6950d43.chunk.css",
-    "static/js/2.01b6604e.chunk.js": "/dota-inside/static/js/2.01b6604e.chunk.js",
-    "static/js/2.01b6604e.chunk.js.map": "/dota-inside/static/js/2.01b6604e.chunk.js.map",
+    "static/js/2.86fadc84.chunk.js": "/dota-inside/static/js/2.86fadc84.chunk.js",
+    "static/js/2.86fadc84.chunk.js.map": "/dota-inside/static/js/2.86fadc84.chunk.js.map",
     "index.html": "/dota-inside/index.html",
     "static/css/2.d6950d43.chunk.css.map": "/dota-inside/static/css/2.d6950d43.chunk.css.map",
-    "static/js/2.01b6604e.chunk.js.LICENSE.txt": "/dota-inside/static/js/2.01b6604e.chunk.js.LICENSE.txt",
+    "static/js/2.86fadc84.chunk.js.LICENSE.txt": "/dota-inside/static/js/2.86fadc84.chunk.js.LICENSE.txt",
     "static/media/index.css": "/dota-inside/static/media/roboto-latin-900italic.e3ddff62.woff2"
   },
   "entrypoints": [
     "static/js/runtime-main.9bb8d79c.js",
     "static/css/2.d6950d43.chunk.css",
-    "static/js/2.01b6604e.chunk.js",
-    "static/js/main.022f0054.chunk.js"
+    "static/js/2.86fadc84.chunk.js",
+    "static/js/main.9b11ef97.chunk.js"
   ]
 }
